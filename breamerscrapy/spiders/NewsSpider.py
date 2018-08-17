@@ -19,7 +19,7 @@ class NewsScrapy(scrapy.Spider):
         db_client = pymysql.connect(host='106.74.146.168', user='root', password='root#123QAZ', db='app',
                                     charset='utf8')
         cursor = db_client.cursor()
-        sql = "select id from app_news_back"
+        sql = "select id from app_news"
         cursor.execute(sql)
         results = cursor.fetchall()
         for s in results:
@@ -65,7 +65,7 @@ class NewsScrapy(scrapy.Spider):
             form_link_str = ""
             for p in ps:
                 inner = ""
-                imgs = p.xpath('./img')
+                imgs = p.xpath('./descendant::img')
                 if len(imgs) > 0:
                     for img in imgs:
                         if img_str == "":

@@ -33,7 +33,7 @@ class NewsPipeline(object):
                                     db=settings['MYSQL_DBNAME'],
                                     charset=settings['MYSQL_CHARSET'])
         cursor = db_client.cursor()
-        sql = "INSERT INTO app_news_back " \
+        sql = "INSERT INTO app_news " \
               "(id,title,create_time,outline,keyword,title_img,content,content_img,from_link) " \
               "VALUES ('%d', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s')" \
               % (int(item['id']), item['title'], item['time'], item['outline'], item['keyword'],
